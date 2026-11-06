@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BENI AUTO PARTS CATALOG</title>
+<style>
+body{margin:0;font-family:Arial;background:#101820;color:white}
+header{background:#172b3a;padding:25px;text-align:center}
+h1{color:#f5b400}
+main{max-width:850px;margin:25px auto;padding:20px}
+section{background:#1c2d3b;padding:20px;border-radius:12px;margin-bottom:18px}
+input,button{width:100%;box-sizing:border-box;padding:14px;margin:8px 0;border:0;border-radius:7px;font-size:16px}
+button{background:#f5b400;font-weight:bold}
+small{color:#bdc8d1}
+</style>
+</head>
+<body>
+<header>
+<h1>BENI AUTO PARTS CATALOG</h1>
+<p>Katalog për identifikimin e pjesëve të automjeteve</p>
+</header>
+<main>
+<section>
+<h2>Identifikimi sipas automjetit</h2>
+<input id="brand" placeholder="Marka: BMW, Audi, VW...">
+<input id="model" placeholder="Modeli">
+<input id="year" placeholder="Viti">
+<input id="engine" placeholder="Motori">
+<button onclick="searchVehicle()">Kërko automjetin</button>
+</section>
+<section>
+<h2>Kërko me numër OEM</h2>
+<input id="oem" placeholder="Shkruaj numrin OEM">
+<button onclick="searchOEM()">Kërko pjesën</button>
+</section>
+<section>
+<h2>Kërko me VIN</h2>
+<input id="vin" placeholder="Shkruaj numrin VIN (17 karaktere)">
+<button onclick="searchVIN()">Identifiko automjetin</button>
+</section>
+<section>
+<h2>Rezultati</h2>
+<p id="result">Rezultatet do të shfaqen këtu kur të lidhet databaza.</p>
+<small>Versioni fillestar – ende pa lidhje me databazën TecDoc ose Plan.parts.</small>
+</section>
+</main>
+<script>
+function searchVehicle(){
+document.getElementById('result').innerText=
+"Automjeti: "+brand.value+" "+model.value+" | "+year.value+" | "+engine.value+
+". Kërkimi me databazë do të aktivizohet në hapin tjetër.";
+}
+function searchOEM(){
+document.getElementById('result').innerText=
+"Numri OEM për kërkim: "+oem.value+". Duhet lidhur databaza e pjesëve.";
+}
+function searchVIN(){
+document.getElementById('result').innerText=
+"VIN: "+vin.value+". Dekodimi kërkon lidhje me shërbimin VIN.";
+}
+</script>
+</body>
+</html>
